@@ -22,7 +22,7 @@ uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
       
-name: Run script
+-name : Run script
       run: |
         echo "$variablejob1",
         echo "$variablejob2",
