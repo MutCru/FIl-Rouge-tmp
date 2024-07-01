@@ -1,4 +1,4 @@
-name: Second-Workflow
+name: First-Workflow
 
 
 on:
@@ -17,24 +17,29 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      
-uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      
--name : Run script
-      run: |
-        echo "$variablejob1",
-        echo "$variablejob2",
-        echo "$variable1"
+      - name: Run script
+        run: |
+          echo "${{secrets.token}}",
+          echo "$variablejob2",
+          echo "$variable1"
 
   job2:
     runs-on: ubuntu-latest
     env: 
       variablejob2: valeurjob2
     steps:
+      - uses: actions/checkout@v4
       
-uses: actions/checkout@v4
+      # Runs a set of commands using the runners shell
+      - name: Run script
+        run: |
+          echo "$variablejob1",
+          echo "$variablejob2",
+          echo "$variable1"
+
     # Runs a set of commands using the runners shell
 name: Run script
     run: |
